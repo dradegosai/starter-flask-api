@@ -1,7 +1,40 @@
-<!doctype html>
-<title>Hello from Flask</title>
-{% if name %}
-  <h1>Hello {{ name }}!</h1>
-{% else %}
-  <h1>Hello, World!</h1>
-{% endif %}
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artemis</title>
+    <link href="../static/style.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body> 
+    <video id="video" autoplay></video>
+    <div id="chat-window" class="bg-light border border-2 rounded mb-5" style="margin-bottom: 100px;">
+    </div>
+    <div class="fixed-bottom bg-light p-2 border border-2 rounded">
+        <input type="text" id="user-input" class="form-control mb-2" placeholder="Inserisci un messagio...">
+        <button id="send-button" class="btn btn-primary mb-2">Invia</button>
+        <button id="search-button" class="btn btn-primary mb-2">Cerca su Internet</button>
+        <button id="vocal" class="btn btn-primary mb-2">Invia messaggio vocale</button>
+        <input type="file" id="image" accept="image/*">
+        <input type="checkbox" id="attiva-webcam" onchange="attivaWebcam()">
+        <label for="attiva-webcam">Attiva la webcam</label>
+    </div>
+    <script src="script.js"></script>
+    <script src="firebase-config.js"></script>
+<style>
+    #video {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 35%;
+    height: 100%;
+    transform: scaleX(-1);
+    z-index: 1;
+    }
+    #video:not(:checked) {
+    pointer-events: none;
+    }
+  </style>
+</body>
+</html>
